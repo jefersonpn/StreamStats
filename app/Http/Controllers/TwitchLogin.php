@@ -57,12 +57,12 @@ class TwitchLogin extends Controller
             $info = Http::get('https://api.twitch.tv/kraken/user',
                                 $this->getHeaders($client_id, $access_token)
                             );
-            
+                
             $user = new Client();
             $response = $user->get(
                 'https://api.twitch.tv/kraken/user',
                 [
-                    'Accept: application/json',
+                    'Accept: application/vnd.twitchtv.v5+json',
                     "Client-ID: $client_id",
                     "Authorization: OAuth $access_token"
                 ]
